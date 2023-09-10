@@ -1,0 +1,60 @@
+public class OrdenarFutbolistas {
+
+    
+    // Index of the cheapest footballer
+        public static int indexCheapFutballer(Footballer fbl[]){
+        float price;
+        int index = 0;
+        
+        price = fbl[0].getPrice();
+        for (int i=1; i<fbl.length; i++){
+            if(fbl[i].getPrice() < price){
+                price = fbl[i].getPrice();
+                index = i;
+            }
+        }
+        
+            return index;
+        }
+    
+    
+    
+    public static void main(String[] args) {
+        // scanner for the user
+        Scanner sn_teclado = new Scanner(System.in);
+        
+        
+        // We create the variable to save data
+        String name, firstname;
+        float price;
+        int NumbersFootballer;
+        int CheapIndex;
+        
+        // Enter the number of footballers
+        System.out.println("Insert the number of footballers");
+        NumbersFootballer = sn_teclado.nextInt();
+        
+              
+        // We create an array to save all the footballers
+        Footballers fbl[] = new Footballers[NumbersFootballers];
+        
+        for (int i=0 ; i < fbl.length ; i++){
+            sn_teclado.nextLine();
+            System.out.println("\nInsert the info of the football player " +(i+1)+ ":");
+            System.out.println("Insert name:");
+            name = sn_teclado.nextLine();
+            System.out.println("Insert firstname");
+            firstname = sn_teclado.nextLine();
+            System.out.println("Insert price:");
+            price = sn_teclado.nextFloat();
+            
+            fbl[i] = new Footballers(name, firstname, price);
+        }
+        
+        // We display the cheapest football player
+        CheapIndex = indexCheapFutballer(fbl);
+        System.out.println("The cheapest football player from the list is:"+ fbl[indiceBarato].toString());
+        
+    }
+    
+}
